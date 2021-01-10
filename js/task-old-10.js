@@ -84,3 +84,14 @@ const users = [
     age: 39,
   },
 ];
+
+const getSortedUniqueSkills = (users) => {
+  const allSkills = users.flatMap((user) => user.skills);
+  const filteredSkills = allSkills.filter(
+    (skill, index, array) => array.indexOf(skill) === index
+  );
+  return filteredSkills.sort((prev, next) => prev.localeCompare(next));
+};
+
+console.log(getSortedUniqueSkills(users));
+// [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]

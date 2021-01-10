@@ -86,11 +86,7 @@ const users = [
 ];
 
 const calculateTotalBalance = (users) => {
-  let totalBalance = 0;
-
-  users.forEach((user) => (totalBalance += user.balance));
-
-  return totalBalance;
+  return users.reduce((acc, user) => acc + user.balance, 0);
 };
 
 console.log(calculateTotalBalance(users)); // 20916
